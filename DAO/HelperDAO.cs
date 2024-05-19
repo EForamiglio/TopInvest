@@ -1,11 +1,12 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace TopInvest.DAO
 {
     public class HelperDAO
     {
-        public static void ExecutaProc(string nomeProc, SqlParameter[] parametros)
+        public static int ExecutaProc(string nomeProc, SqlParameter[] parametros, bool consultaUltimoIdentity = false)
         {
             using (SqlConnection conexao = ConBD.GetCon())
             {
@@ -15,6 +16,18 @@ namespace TopInvest.DAO
                     if (parametros != null)
                         comando.Parameters.AddRange(parametros);
                     comando.ExecuteNonQuery();
+
+                    if (consultaUltimoIdentity)
+                    {
+                        string sql = "select isnull(@@IDENTITY,0)";
+                        comando.CommandType = CommandType.Text;
+                        comando.CommandText = sql;
+                        int lastId = Convert.ToInt32(comando.ExecuteScalar());
+                        conexao.Close();
+                        return lastId;
+                    }
+                    else
+                        return 0;
                 }
             }
         }

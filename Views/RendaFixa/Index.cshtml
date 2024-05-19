@@ -1,0 +1,32 @@
+﻿@model List<RendaFixaViewModel>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Listagem de Ações</h2>
+</br>
+<a href="/rendaFixa/create">Novo Registro</a>
+<table class="table table-responsive">
+    <tr>
+        <th>Ações</th>
+        <th>Descricao</th>
+        <th>Rentabilidade</th>
+    </tr>
+    @foreach (var renda in Model)
+    {
+        <tr>
+            <td>
+                <a href="/rendaFixa/Edit?id=@renda.Id">Editar</a>
+                <a href="javascript:apagarRenda(@renda.Id)">Apagar</a>
+            </td>
+            <td>@renda.Descricao</td>
+            <td>@renda.Rentabilidade</td>
+        </tr>
+    }
+</table>
+
+<script>
+    function apagarRenda(id) {
+        if (confirm('Confirma a exclusão do registro?'))
+            location.href = '/rendaFixa/Delete?id=' + id;
+    }
+</script>

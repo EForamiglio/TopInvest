@@ -21,6 +21,8 @@ namespace TopInvest.Controllers
                 context.Result = RedirectToAction("Index", "Login");
             else
             {
+                if (HelperController.VerificaUserAdm(HttpContext.Session))
+                    ViewBag.Adm = true;
                 ViewBag.Logado = true;
                 base.OnActionExecuting(context);
             }
@@ -84,12 +86,6 @@ namespace TopInvest.Controllers
         protected virtual void ValidaDados(T model, string operacao)
         {
             ModelState.Clear();
-            if (operacao == "I" && DAO.Consulta(model.Id) != null)
-                ModelState.AddModelError("Id", "Código já está em uso!");
-            if (operacao == "A" && DAO.Consulta(model.Id) == null)
-                ModelState.AddModelError("Id", "Este registro não existe!");
-            if (model.Id <= 0)
-                ModelState.AddModelError("Id", "Id inválido!");
         }
         public IActionResult Edit(int id)
         {

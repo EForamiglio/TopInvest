@@ -364,3 +364,7 @@ D:\Erik\Materia Facul\Sem5\LP1\N1-2bim\TopInvest\obj\Debug\netcoreapp3.1\TopInve
 D:\Erik\Materia Facul\Sem5\LP1\N1-2bim\TopInvest\obj\Debug\netcoreapp3.1\TopInvest.genruntimeconfig.cache
 D:\Erik\Materia Facul\Sem5\LP1\N1-2bim\TopInvest\obj\Debug\netcoreapp3.1\Razor\Views\Login\Index.cshtml.g.cs
 D:\Erik\Materia Facul\Sem5\LP1\N1-2bim\TopInvest\obj\Debug\netcoreapp3.1\Razor\Views\Cliente\form.cshtml.g.cs
+D:\Erik\Materia Facul\Sem5\LP1\N1-2bim\TopInvest\obj\Debug\netcoreapp3.1\Razor\Views\RendaVariavel\form.cshtml.g.cs
+D:\Erik\Materia Facul\Sem5\LP1\N1-2bim\TopInvest\obj\Debug\netcoreapp3.1\Razor\Views\RendaVariavel\Index.cshtml.g.cs
+D:\Erik\Materia Facul\Sem5\LP1\N1-2bim\TopInvest\obj\Debug\netcoreapp3.1\Razor\Views\RendaFixa\form.cshtml.g.cs
+D:\Erik\Materia Facul\Sem5\LP1\N1-2bim\TopInvest\obj\Debug\netcoreapp3.1\Razor\Views\RendaFixa\Index.cshtml.g.cs

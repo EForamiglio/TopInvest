@@ -1,0 +1,37 @@
+﻿@model List<RendaVariavelViewModel>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Listagem de Ações</h2>
+</br>
+<a href="/RendaVariavel/create">Novo Registro</a>
+<table class="table table-responsive">
+    <tr>
+        <th>Ações</th>
+        <th>Sigla</th>
+        <th>Preço</th>
+        <th>Icone</th>
+    </tr>
+    @foreach (var renda in Model)
+    {
+        <tr>
+            <td>
+                <a href="/RendaVariavel/Edit?id=@renda.Id">Editar</a>
+                <a href="javascript:apagarAcao(@renda.Id)">Apagar</a>
+            </td>
+            <td>@renda.Sigla</td>
+            <td>@renda.Preco</td>
+            <td>
+                <img id="imgPreview" src="data:image/jpeg;base64,@renda.ImagemEmBase64" class="img-responsive"
+                width="50">
+            </td>
+        </tr>
+    }
+</table>
+
+<script>
+    function apagarAcao(id) {
+        if (confirm('Confirma a exclusão do registro?'))
+            location.href = '/rendaVariavel/Delete?id=' + id;
+    }
+</script>

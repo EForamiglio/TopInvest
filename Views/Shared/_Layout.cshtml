@@ -24,7 +24,10 @@
                                 <a class="nav-link" asp-area="" asp-controller="RendaFixa" asp-action="Index">Consulta de Investimentos</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-controller="RendaFixa" asp-action="Index">Cadastros</a>
+                                <a class="nav-link" asp-area="" asp-controller="RendaVariavel" asp-action="Index">Ações</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="RendaFixa" asp-action="Index">Renda Fixa</a>
                             </li>
                         }
                         @if (ViewBag.Logado == true)
@@ -39,6 +42,11 @@
                                 <a class="nav-link" asp-area="" asp-controller="Login" asp-action="LogOff">Logoff</a>
                             </li>
                         }
+                        else
+                        {
+                            <li><a asp-area="" asp-controller="Login" asp-action="Index">Login</a></li>
+                        }
+
                     </ul>
                 </div>
             </div>

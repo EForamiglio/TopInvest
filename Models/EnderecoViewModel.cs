@@ -9,6 +9,6 @@ namespace TopInvest.Models
         public string Cidade { get; set; }
         public string Rua { get; set; }
         public string Cep { get; set; }
-        public string numero { get; set; }
+        public string Numero { get; set; }
     }
 }

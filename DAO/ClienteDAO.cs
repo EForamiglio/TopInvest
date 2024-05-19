@@ -34,7 +34,7 @@ namespace TopInvest.DAO
             cliente.Usuario = registro["usuario"].ToString();
             cliente.Senha = registro["senha"].ToString();
             cliente.Saldo = Convert.ToInt64(registro["saldo"]);
-            cliente.NumConta = registro["numConta"].ToString();
+            cliente.NumConta = Convert.ToInt32(registro["numConta"]);
             cliente.flgAdm = Convert.ToBoolean(registro["flgAdm"]);
             cliente.EnderecoId = Convert.ToInt32(registro["idEndereco"]);
             return cliente;
@@ -55,6 +55,12 @@ namespace TopInvest.DAO
             parametros[0] = new SqlParameter("usuario", usuario);
             parametros[1] = new SqlParameter("senha", senha);
             return parametros;
+        }
+
+        public int GeraProximaConta()
+        {
+            var tabela = HelperDAO.ExecutaProcSelect("spProximaConta", null);
+            return Convert.ToInt32(tabela.Rows[0][0]);
         }
     }
 }
