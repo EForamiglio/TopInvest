@@ -1,0 +1,31 @@
+﻿@model List<ClienteViewModel>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Login</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h2 class="text-center">Login</h2>
+                <form action="/login/FazLogin" method="post">
+                    <div class="form-group">
+                        <label for="username">Usuário</label>
+                        <input type="text" class="form-control" id="username" name="usuario" placeholder="Digite seu usuário">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Senha</label>
+                        <input type="password" class="form-control" name="senha" id="password" placeholder="Digite sua senha">
+                    </div>
+                    <button type="submit" class="btn btn-success btn-block">Entrar</button>
+                    <a href="/cliente/create">Novo Registro</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
