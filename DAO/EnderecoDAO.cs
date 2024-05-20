@@ -9,13 +9,14 @@ namespace TopInvest.DAO
     {
         protected override SqlParameter[] CriaParametros(EnderecoViewModel model)
         {
-            SqlParameter[] parametros = new SqlParameter[6];
+            SqlParameter[] parametros = new SqlParameter[7];
             parametros[0] = new SqlParameter("id", model.Id);
             parametros[1] = new SqlParameter("estado", model.Estado);
             parametros[2] = new SqlParameter("cidade", model.Cidade);
             parametros[3] = new SqlParameter("rua", model.Rua);
             parametros[4] = new SqlParameter("numero", model.Numero);
             parametros[5] = new SqlParameter("cep", model.Cep);
+            parametros[6] = new SqlParameter("bairro", model.Bairro);
             return parametros;
         }
 
@@ -28,6 +29,7 @@ namespace TopInvest.DAO
             endereco.Rua = registro["rua"].ToString();
             endereco.Numero = registro["numero"].ToString();
             endereco.Cep = registro["cep"].ToString();
+            endereco.Bairro = registro["bairro"].ToString();
             return endereco;
         }
 

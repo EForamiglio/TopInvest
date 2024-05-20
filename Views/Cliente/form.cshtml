@@ -43,6 +43,11 @@
             <div class="mb-3">
                 <h2>Endereço</h2>
                 <div class="mb-3">
+                    <label for="cep" class="form-label">CEP:</label>
+                    <input type="text" id="cep" name="cep" class="form-control" onchange="buscaCEP()">
+                </div>
+
+                <div class="mb-3">
                     <label for="estado" class="form-label">Estado:</label>
                     <input type="text" id="estado" name="estado" class="form-control">
                 </div>
@@ -53,14 +58,16 @@
                 </div>
 
                 <div class="mb-3">
+                    <label for="bairro" class="form-label">Bairro:</label>
+                    <input type="text" id="bairro" name="bairro" class="form-control">
+                </div>
+
+                <div class="mb-3">
                     <label for="rua" class="form-label">Rua:</label>
                     <input type="text" id="rua" name="rua" class="form-control">
                 </div>
 
-                <div class="mb-3">
-                    <label for="cep" class="form-label">CEP:</label>
-                    <input type="text" id="cep" name="cep" class="form-control">
-                </div>
+                
 
                 <div class="mb-3">
                     <label for="numero" class="form-label">Número:</label>
@@ -69,6 +76,42 @@
             </div>
 
             <button type="submit" class="btn btn-primary">Cadastrar</button>
+
+            <script>
+                function buscaCEP() {
+                    var cep = document.getElementById("cep").value;
+                    cep = cep.replace('-', ''); // removemos o traço do CEP
+                    if (cep.length > 0) {
+                        var linkAPI = 'https://viacep.com.br/ws/' + cep + '/json/';
+                        $.ajax({
+                            url: linkAPI,
+                            beforeSend: function () {
+                                document.getElementById("estado").value = '...';
+                                document.getElementById("bairro").value = '...';
+                                document.getElementById("cidade").value = '...';
+                                document.getElementById("rua").value = '...';
+                            },
+                            success: function (dados) {
+                                if (dados.erro != undefined) // quando o CEP não existe...
+                                {
+                                    alert('CEP não localizado...');
+                                    document.getElementById("estado").value = '';
+                                    document.getElementById("bairro").value = '';
+                                    document.getElementById("cidade").value = '';
+                                    document.getElementById("rua").value = '';
+                                }
+                                else // quando o CEP existe
+                                {
+                                    document.getElementById("estado").value = dados.uf;
+                                    document.getElementById("bairro").value = dados.bairro;
+                                    document.getElementById("cidade").value = dados.localidade;
+                                    document.getElementById("rua").value = dados.logradouro;
+                                }
+                            }
+                        });
+                    }
+                }
+            </script>
         </form>
     </div>
 </body>
