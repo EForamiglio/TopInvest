@@ -1,0 +1,25 @@
+﻿@model List<RendaFixaViewModel>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Descrição</th>
+            <th scope="col">Duração</th>
+            <th scope="col">Rentabilidade</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var renda in Model)
+        {
+            <tr>
+                <td>@renda.Descricao</td>
+                <td>@renda.Duracao meses</td>
+                <td>@renda.Rentabilidade %</td>
+                <td>
+                    <a onclick="confirmarAplicacao(@renda.Id)" class="btn btn-success">Aplicar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

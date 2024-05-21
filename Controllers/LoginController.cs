@@ -35,6 +35,7 @@ namespace TopInvest.Controllers
                 ViewBag.NomeUser = HelperController.PreencheNomeUser(HttpContext.Session);
 
                 CarregaCarteiraVariavel(cliente.Id);
+                CarregaCarteiraFixa(cliente.Id);
 
                 return RedirectToAction("index", "Home");  
             }
@@ -58,6 +59,16 @@ namespace TopInvest.Controllers
 
             string carteiraJson = JsonConvert.SerializeObject(carteira);
             HttpContext.Session.SetString("carteira", carteiraJson);
+        }
+
+        private void CarregaCarteiraFixa(int clientId)
+        {
+            FixoDAO dao = new FixoDAO();
+
+            var carteira = dao.CarregaCarteira(clientId);
+
+            string carteiraJson = JsonConvert.SerializeObject(carteira);
+            HttpContext.Session.SetString("carteiraFixa", carteiraJson);
         }
 
     }

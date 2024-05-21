@@ -1,0 +1,58 @@
+﻿@model List<RendaFixaViewModel>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2 class="text-center">Investimento em Renda Fixa</h2>
+</br>
+
+
+<fieldset id="areaFiltro" class="form-group">
+    <legend>Filtro</legend>
+    <div class="row">
+        <div class="col-lg-4">
+            Descrição<br />
+            <input type="text" id="descricao" class="form-control" />
+        </div>
+        <div class="col-lg-1">
+            <br />
+            <input type="button" id="btnFiltro" class="btn btn-success" value="Aplicar"
+                   onclick="aplicaFiltroConsultaFixo()" />
+        </div>
+    </div>
+</fieldset>
+
+</br>
+</br>
+
+<div class="col-lg-3">
+    Valor da aplicação:<br />
+    <input type="number" id="valor" class="form-control" />
+</div>
+
+</br>
+
+<div id="resultadoConsulta" class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Descrição</th>
+                <th scope="col">Duração</th>
+                <th scope="col">Rentabilidade</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var renda in Model)
+            {
+                <tr>
+                    <td>@renda.Descricao</td>
+                    <td>@renda.Duracao meses</td>
+                    <td>@renda.Rentabilidade %</td>
+                    <td>
+                        <a onclick="confirmarAplicacao(@renda.Id)" class="btn btn-success">Aplicar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

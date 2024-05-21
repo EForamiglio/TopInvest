@@ -39,19 +39,40 @@ function confirmarCompra(id) {
     }
 }
 
-function brokerRendaFixa() {
+function aplicaFiltroConsultaFixo() {
+    var vDescricao = document.getElementById('descricao').value;
     $.ajax({
-        url: "/broker/DadosRendaFixa",
+        url: "/fixo/ObtemDadosConsultaAvancada",
+        data: { descricao: vDescricao },
         success: function (dados) {
-            document.getElementById('resultado').innerHTML = '';
             if (dados.erro != undefined) {
                 alert(dados.msg);
             }
             else {
-                document.getElementById('resultado').innerHTML = dados;
+                document.getElementById('resultadoConsulta').innerHTML = '';
+                document.getElementById('resultadoConsulta').innerHTML = dados;
             }
         },
     });
+
+}
+
+function confirmarAplicacao(id) {
+    if (confirm('Confirma aplicação?')) {
+        var vValor = document.getElementById('valor').value;
+        $.ajax({
+            url: "fixo/EfetuaAplicacao",
+            data: { fixaId: id, valor: vValor },
+            success: function (dados) {
+                if (dados.erro != undefined) {
+                    alert(dados.msg);
+                }
+                else {
+                    alert(dados.msg);
+                }
+            },
+        });
+    }
 }
 
 function aplicaFiltroConsultaAvancadaVariavel() {

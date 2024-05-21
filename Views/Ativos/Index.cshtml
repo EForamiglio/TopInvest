@@ -1,6 +1,7 @@
 ﻿@model List<TradeViewModel>
 
-<div id="resultadoConsulta" class="table-responsive">
+<div id="acoes" class="table-responsive">
+    <h3>Carteira de Ações</h3>
     <table class="table mx-auto">
         <thead>
             <tr>
@@ -20,11 +21,55 @@
                              width="50">
                     </td>
                     <td>@trade.Sigla</td>
-                    <td>@trade.Valor</td>
+                    <td>R$ @trade.Valor</td>
                     <td>@trade.Quantidade</td>
                     <td>@trade.DataCompra</td>
                 </tr>
             }
         </tbody>
     </table>
+</div>
+
+</br></br></br></br>
+
+<div id="fixos" class="table-responsive">
+    <h3>Aplicações</h3>
+    <table class="table mx-auto">
+        <thead>
+            <tr>
+                <th scope="col">Descricao</th>
+                <th scope="col">Valor</th>
+                <th scope="col">Duracao</th>
+                <th scope="col">Rentabilidade</th>
+                <th scope="col">RendimentoFinal</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var fixo in ViewBag.Fixos)
+            {
+                <tr>
+                    <td>@fixo.Descricao</td>
+                    <td>R$ @fixo.Valor</td>
+                    <td>@fixo.Duracao meses</td>
+                    <td>@fixo.Rentabilidade %</td>
+                    <td>R$ @fixo.RendimentoFinal</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div id="resultadoConsulta" class="table-responsive">
+                
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div id="resultadoConsulta" class="table-responsive">
+                
+            </div>
+        </div>
+    </div>
 </div>

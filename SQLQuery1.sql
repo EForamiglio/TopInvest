@@ -349,7 +349,7 @@ as
 begin
 select c.*, r.imgIcone, r.sigla from ClienteRendaVariavel c
 inner join RendaVariavel r on c.rendaVariavelId = r.id
-where c.clientId =1 @clientId
+where c.clientId = @clientId
 end
 
 create procedure spInsert_Trade
@@ -369,6 +369,36 @@ begin
  (@valor, @quantidade, @dataCompra, @clientId, @rendaVariavelId);
 end
 
+--------------------------------FIXO
+
+create procedure spInsert_Fixo
+(
+ @id int,
+ @valor float,
+ @duracao varchar(20),
+ @rendimentoFinal float,
+ @clientId int,
+ @rendaFixaId int
+)
+as
+begin
+ insert into ClienteRendaFixa
+ (valor, duracao, rendimentoFinal, clientId, rendaFixaId)
+ values
+ (@valor, @duracao, @rendimentoFinal, @clientId, @rendaFixaId);
+end
+
+create procedure spCarregaCarteiraFixa
+(
+ @clientId int
+)
+as
+begin
+select c.*, r.imgIcone, r.sigla from ClienteRendaVariavel c
+inner join RendaVariavel r on c.rendaVariavelId = r.id
+where c.clientId = @clientId
+end
+
 use TopInvest
 
 select * from ClienteRendaVariavel
@@ -377,3 +407,8 @@ insert into ClienteRendaVariavel
  (valor, quantidade, dataCompra, clientId, rendaVariavelId)
  values
  (10000, 100, '2024-01-01', 1, 1);
+
+insert into ClienteRendaFixa
+ (valor, duracao, rendimentoFinal, clientId, rendaFixaId)
+ values
+ (10, '2', 100.5, 1, 1);
