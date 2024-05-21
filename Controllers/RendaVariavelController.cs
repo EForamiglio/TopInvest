@@ -33,7 +33,7 @@ namespace TopInvest.Controllers
         {
             base.ValidaDados(model, operacao);
             if (string.IsNullOrEmpty(model.Sigla))
-                ModelState.AddModelError("Nome", "Preencha o nome.");
+                ModelState.AddModelError("Sigla", "Preencha a sigla.");
             //Imagem será obrigatio apenas na inclusão.
             //Na alteração iremos considerar a que já estava salva.
             if (model.Imagem == null && operacao == "I")

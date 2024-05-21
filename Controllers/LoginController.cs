@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using TopInvest.DAO;
+using TopInvest.Models;
 
 namespace TopInvest.Controllers
 {
@@ -30,6 +33,9 @@ namespace TopInvest.Controllers
                 HttpContext.Session.SetString("NomeUser", cliente.Nome);
                 HttpContext.Session.SetString("UserId", cliente.Id.ToString());
                 ViewBag.NomeUser = HelperController.PreencheNomeUser(HttpContext.Session);
+
+                CarregaCarteiraVariavel(cliente.Id);
+
                 return RedirectToAction("index", "Home");  
             }
             else
@@ -43,5 +49,16 @@ namespace TopInvest.Controllers
             HttpContext.Session.Clear();
             return RedirectToAction("Index");
         }
+
+        private void CarregaCarteiraVariavel(int clientId)
+        {
+            TradeDAO dao = new TradeDAO();
+
+            var carteira = dao.CarregaCarteira(clientId);
+
+            string carteiraJson = JsonConvert.SerializeObject(carteira);
+            HttpContext.Session.SetString("carteira", carteiraJson);
+        }
+
     }
 }

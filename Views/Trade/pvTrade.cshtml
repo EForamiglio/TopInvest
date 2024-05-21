@@ -1,0 +1,28 @@
+﻿@model List<RendaVariavelViewModel>
+
+<table class="table mx-auto">
+    <thead>
+        <tr>
+            <th scope="col">Ícone</th>
+            <th scope="col">Sigla</th>
+            <th scope="col">Preço</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var renda in Model)
+        {
+            <tr>
+                <td>
+                    <img id="imgPreview" src="data:image/jpeg;base64,@renda.ImagemEmBase64" class="img-responsive"
+                         width="50">
+                </td>
+                <td>@renda.Sigla</td>
+                <td>@renda.Preco</td>
+                <td>
+                    <a href="javascript:confirmarCompra(@renda.Id)" class="btn btn-success">Comprar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

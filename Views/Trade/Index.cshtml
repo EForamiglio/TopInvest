@@ -1,4 +1,10 @@
 ﻿@model List<RendaVariavelViewModel>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2 class="text-center">Compra de Ações</h2>
+</br>
+
 
 <fieldset id="areaFiltro" class="form-group">
     <legend>Filtro</legend>
@@ -10,13 +16,20 @@
         <div class="col-lg-1">
             <br />
             <input type="button" id="btnFiltro" class="btn btn-success" value="Aplicar"
-                   onclick="aplicaFiltroConsultaAvancadaVariavel()" />
+                   onclick="aplicaFiltroConsultaTrade()" />
         </div>
     </div>
 </fieldset>
 
-        </br>
-        </br>
+</br>
+</br>
+
+<div class="col-lg-3">
+    Quantidade:<br />
+    <input type="number" id="qtd" class="form-control" />
+</div>
+
+</br>
 
 <div id="resultadoConsulta" class="table-responsive">
     <table class="table mx-auto">
@@ -25,7 +38,7 @@
                 <th scope="col">Ícone</th>
                 <th scope="col">Sigla</th>
                 <th scope="col">Preço</th>
-                <th scope="col">Ações</th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
@@ -39,7 +52,7 @@
                     <td>@renda.Sigla</td>
                     <td>@renda.Preco</td>
                     <td>
-                        <a href="/Broker/Compra?id=@renda.Id" class="btn btn-success me-2">Comprar</a>
+                        <a onclick="confirmarCompra(@renda.Id)" class="btn btn-success">Comprar</a>
                     </td>
                 </tr>
             }

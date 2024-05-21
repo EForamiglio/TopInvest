@@ -3,19 +3,40 @@
 
 // Write your JavaScript code.
 
-function brokerRendaVariavel() {
+function aplicaFiltroConsultaTrade() {
+    var vSigla = document.getElementById('sigla').value;
     $.ajax({
-        url: "/broker/DadosRendaVariavel",
+        url: "/trade/ObtemDadosConsultaAvancada",
+        data: { sigla: vSigla },
         success: function (dados) {
-            document.getElementById('resultado').innerHTML = '';
             if (dados.erro != undefined) {
                 alert(dados.msg);
             }
             else {
-                document.getElementById('resultado').innerHTML = dados;
+                document.getElementById('resultadoConsulta').innerHTML = '';
+                document.getElementById('resultadoConsulta').innerHTML = dados;
             }
         },
     });
+
+}
+
+function confirmarCompra(id) {
+    if (confirm('Confirma compra da ação?')) {
+        var vQtd = document.getElementById('qtd').value;
+        $.ajax({
+            url: "trade/EfetuaCompra",
+            data: { acaoId: id, qtd: vQtd },
+            success: function (dados) {
+                if (dados.erro != undefined) {
+                    alert(dados.msg);
+                }
+                else {
+                    alert(dados.msg);
+                }
+            },
+        });
+    }
 }
 
 function brokerRendaFixa() {

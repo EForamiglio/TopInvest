@@ -3,6 +3,7 @@ using TopInvest.DAO;
 using TopInvest.Models;
 using Microsoft.AspNetCore.Http;
 using System;
+using Newtonsoft.Json;
 
 namespace TopInvest.Controllers
 {
@@ -42,6 +43,8 @@ namespace TopInvest.Controllers
 
                 HttpContext.Session.SetString("NomeUser", cliente.Nome);
 
+                CarregaCarteiraVariavel(clienteId);
+
                 return RedirectToAction("Index", "Home");
             }
             catch (Exception erro)
@@ -49,6 +52,16 @@ namespace TopInvest.Controllers
                 return RedirectToAction("Index", "LogOff");
             }
 
+        }
+
+        private void CarregaCarteiraVariavel(int clientId)
+        {
+            TradeDAO dao = new TradeDAO();
+
+            var carteira = dao.CarregaCarteira(clientId);
+
+            string carteiraJson = JsonConvert.SerializeObject(carteira);
+            HttpContext.Session.SetString("carteira", carteiraJson);
         }
     }
 }

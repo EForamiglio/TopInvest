@@ -38,7 +38,7 @@ create table ClienteRendaVariavel (
 	id int identity primary key,
 	valor float,
 	quantidade int,
-	dataCompra DateTime,
+	dataCompra Date,
 	clientId int,
 	rendaVariavelId int
 )
@@ -338,3 +338,42 @@ end
 select * from Cliente
 select * from Endereco
 select * from RendaVariavel
+
+//--------------------------- TRADE-------------------------
+
+alter procedure spCarregaCarteiraVariavel
+(
+ @clientId int
+)
+as
+begin
+select c.*, r.imgIcone, r.sigla from ClienteRendaVariavel c
+inner join RendaVariavel r on c.rendaVariavelId = r.id
+where c.clientId =1 @clientId
+end
+
+create procedure spInsert_Trade
+(
+ @id int,
+ @valor float,
+ @quantidade int,
+ @dataCompra dateTime,
+ @clientId int,
+ @rendaVariavelId int
+)
+as
+begin
+ insert into ClienteRendaVariavel
+ (valor, quantidade, dataCompra, clientId, rendaVariavelId)
+ values
+ (@valor, @quantidade, @dataCompra, @clientId, @rendaVariavelId);
+end
+
+use TopInvest
+
+select * from ClienteRendaVariavel
+
+insert into ClienteRendaVariavel
+ (valor, quantidade, dataCompra, clientId, rendaVariavelId)
+ values
+ (10000, 100, '2024-01-01', 1, 1);

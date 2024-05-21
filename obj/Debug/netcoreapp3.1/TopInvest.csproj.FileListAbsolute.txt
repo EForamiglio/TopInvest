@@ -370,4 +370,7 @@ D:\Erik\Materia Facul\Sem5\LP1\N1-2bim\TopInvest\obj\Debug\netcoreapp3.1\Razor\V
 D:\Erik\Materia Facul\Sem5\LP1\N1-2bim\TopInvest\obj\Debug\netcoreapp3.1\Razor\Views\RendaFixa\Index.cshtml.g.cs
 D:\Erik\Materia Facul\Sem5\LP1\N1-2bim\TopInvest\obj\Debug\netcoreapp3.1\Razor\Views\RendaVariavel\pvGridAcoes.cshtml.g.cs
 D:\Erik\Materia Facul\Sem5\LP1\N1-2bim\TopInvest\obj\Debug\netcoreapp3.1\Razor\Views\RendaFixa\pvGridFixa.cshtml.g.cs
-D:\Erik\Materia Facul\Sem5\LP1\N1-2bim\TopInvest\obj\Debug\netcoreapp3.1\Razor\Views\Broker\Index.cshtml.g.cs
+D:\Erik\Materia Facul\Sem5\LP1\N1-2bim\TopInvest\obj\Debug\netcoreapp3.1\Razor\Views\Trade\Index.cshtml.g.cs
+D:\Erik\Materia Facul\Sem5\LP1\N1-2bim\TopInvest\obj\Debug\netcoreapp3.1\Razor\Views\Trade\pvTrade.cshtml.g.cs
+D:\Erik\Materia Facul\Sem5\LP1\N1-2bim\TopInvest\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\Erik\Materia Facul\Sem5\LP1\N1-2bim\TopInvest\obj\Debug\netcoreapp3.1\Razor\Views\Ativos\Index.cshtml.g.cs
