@@ -21,9 +21,6 @@
                         @if (ViewBag.Adm == true)
                         {
                             <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-controller="RendaFixa" asp-action="Index">Consulta de Investimentos</a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link" asp-area="" asp-controller="RendaVariavel" asp-action="Index">Ações</a>
                             </li>
                             <li class="nav-item">
@@ -36,7 +33,11 @@
                                 <a class="nav-link" asp-area="" asp-controller="Main" asp-action="Index">Broker</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-controller="Cliente" asp-action="Index">Ativos</a>
+                                <a class="nav-link" asp-area="" asp-controller="Ativos" asp-action="Index">Meus Ativos</a>
+                            </li>
+                            <span>       </span>
+                            <li class="nav-item">
+                                <span>@ViewBag.NomeUser</span>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" asp-area="" asp-controller="Login" asp-action="LogOff">Logoff</a>
@@ -46,11 +47,11 @@
                         {
                             <li><a asp-area="" asp-controller="Login" asp-action="Index">Login</a></li>
                         }
-
                     </ul>
                 </div>
             </div>
         </nav>
+
     </header>
     <div class="container">
         <main role="main" class="pb-3">

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using TopInvest.Models;
@@ -42,6 +43,20 @@ namespace TopInvest.DAO
         protected override void SetTabela()
         {
             Tabela = "RendaVariavel";
+        }
+
+        public List<RendaVariavelViewModel> ConsultaSigla(string sigla)
+        {
+            SqlParameter[] p = {
+                new SqlParameter("sigla", sigla),
+            };
+
+            var tabela = HelperDAO.ExecutaProcSelect("spConsultaSigla", p);
+            var lista = new List<RendaVariavelViewModel>();
+
+            foreach (DataRow dr in tabela.Rows)
+                lista.Add(MontaModel(dr));
+            return lista;
         }
     }
 }

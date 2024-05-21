@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Data.SqlTypes;
+using System;
 using System.IO;
 using TopInvest.DAO;
 using TopInvest.Models;
@@ -12,6 +14,7 @@ namespace TopInvest.Controllers
         {
             DAO = new RendaVariavelDAO();
             GeraProximoId = true;
+            ExigeAdm = true;
         }
 
         public byte[] ConvertImageToByte(IFormFile file)
@@ -49,6 +52,23 @@ namespace TopInvest.Controllers
                 {
                     model.ImagemEmByte = ConvertImageToByte(model.Imagem);
                 }
+            }
+        }
+
+        public IActionResult ObtemDadosConsultaAvancada(string sigla)
+        {
+            try
+            {
+                RendaVariavelDAO dao = new RendaVariavelDAO();
+                if (string.IsNullOrEmpty(sigla))
+                    sigla = "";
+
+                var lista = dao.ConsultaSigla(sigla);
+                return PartialView("pvGridAcoes", lista);
+            }
+            catch (Exception erro)
+            {
+                return Json(new { erro = true, msg = erro.Message });
             }
         }
     }

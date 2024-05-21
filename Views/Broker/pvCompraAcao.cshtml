@@ -1,10 +1,4 @@
 ﻿@model List<RendaVariavelViewModel>
-@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-<h2 class="text-center">Listagem de Ações</h2>
-</br>
-
 
 <fieldset id="areaFiltro" class="form-group">
     <legend>Filtro</legend>
@@ -21,20 +15,17 @@
     </div>
 </fieldset>
 
-</br>
-</br>
-
-<a href="/RendaVariavel/create" class="btn btn-success me-2">Novo Registro</a>
-</br> </br>
+        </br>
+        </br>
 
 <div id="resultadoConsulta" class="table-responsive">
     <table class="table mx-auto">
         <thead>
             <tr>
-                <th scope="col">Ações</th>
                 <th scope="col">Ícone</th>
                 <th scope="col">Sigla</th>
                 <th scope="col">Preço</th>
+                <th scope="col">Ações</th>
             </tr>
         </thead>
         <tbody>
@@ -42,24 +33,16 @@
             {
                 <tr>
                     <td>
-                        <a href="/RendaVariavel/Edit?id=@renda.Id" class="btn btn-primary me-2">Editar</a>
-                        <a href="javascript:apagarAcao(@renda.Id)" class="btn btn-danger">Apagar</a>
-                    </td>
-                    <td>
                         <img id="imgPreview" src="data:image/jpeg;base64,@renda.ImagemEmBase64" class="img-responsive"
                              width="50">
                     </td>
                     <td>@renda.Sigla</td>
                     <td>@renda.Preco</td>
+                    <td>
+                        <a href="/Broker/Compra?id=@renda.Id" class="btn btn-success me-2">Comprar</a>
+                    </td>
                 </tr>
             }
         </tbody>
     </table>
 </div>
-
-<script>
-    function apagarAcao(id) {
-        if (confirm('Confirma a exclusão do registro?'))
-            location.href = '/rendaVariavel/Delete?id=' + id;
-    }
-</script>

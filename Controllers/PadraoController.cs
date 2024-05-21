@@ -15,15 +15,22 @@ namespace TopInvest.Controllers
         protected string NomeViewForm { get; set; } = "form";
         protected bool ExigeAutenticacao { get; set; } = true;
 
+        protected bool ExigeAdm { get; set; } = false;
+
         public override void OnActionExecuting(ActionExecutingContext context)
         {
+            if (ExigeAdm && !HelperController.VerificaUserAdm(HttpContext.Session))
+                context.Result = RedirectToAction("Index", "Login");
             if (ExigeAutenticacao && !HelperController.VerificaUserLogado(HttpContext.Session))
                 context.Result = RedirectToAction("Index", "Login");
             else
             {
                 if (HelperController.VerificaUserAdm(HttpContext.Session))
                     ViewBag.Adm = true;
+                if (HelperController.VerificaUserLogado(HttpContext.Session))
                 ViewBag.Logado = true;
+
+                ViewBag.NomeUser = HelperController.PreencheNomeUser(HttpContext.Session);
                 base.OnActionExecuting(context);
             }
         }

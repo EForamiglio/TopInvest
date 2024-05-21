@@ -2,27 +2,59 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h2>Listagem de Ações</h2>
+<h2 class="text-center">Listagem de Rendas Fixas</h2>
 </br>
-<a href="/rendaFixa/create">Novo Registro</a>
-<table class="table table-responsive">
-    <tr>
-        <th>Ações</th>
-        <th>Descricao</th>
-        <th>Rentabilidade</th>
-    </tr>
-    @foreach (var renda in Model)
-    {
-        <tr>
-            <td>
-                <a href="/rendaFixa/Edit?id=@renda.Id">Editar</a>
-                <a href="javascript:apagarRenda(@renda.Id)">Apagar</a>
-            </td>
-            <td>@renda.Descricao</td>
-            <td>@renda.Rentabilidade</td>
-        </tr>
-    }
-</table>
+
+
+<fieldset id="areaFiltro" class="form-group">
+    <legend>Filtro</legend>
+    <div class="row">
+        <div class="col-lg-4">
+            Descrição<br />
+            <input type="text" id="descricao" class="form-control" />
+        </div>
+        <div class="col-lg-1">
+            <br />
+            <input type="button" id="btnFiltro" class="btn btn-success" value="Aplicar"
+                   onclick="aplicaFiltroConsultaAvancadaFixa()" />
+        </div>
+    </div>
+</fieldset>
+
+<br />
+<br />
+
+<a href="/rendaFixa/create" class="btn btn-success me-2">Novo Registro</a>
+</br> </br>
+
+<div id="resultadoConsulta" class="table-responsive"> 
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Ações</th>
+                <th scope="col">Descrição</th>
+                <th scope="col">Duração</th>
+                <th scope="col">Rentabilidade</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var renda in Model)
+            {
+                <tr>
+                    <td>
+                        <a href="/rendaFixa/Edit?id=@renda.Id" class="btn btn-primary me-2">Editar</a>
+                        <a href="javascript:apagarRenda(@renda.Id)" class="btn btn-danger">Apagar</a>
+                    </td>
+                    <td>@renda.Descricao</td>
+                    <td>@renda.Duracao</td>
+                    <td>@renda.Rentabilidade</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
 
 <script>
     function apagarRenda(id) {

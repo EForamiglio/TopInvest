@@ -22,5 +22,23 @@ namespace TopInvest.Controllers
 
             return true;
         }
+
+        public static string PreencheNomeUser(ISession session)
+        {
+            string name = session.GetString("NomeUser");
+            if (name == null)
+                return "";
+
+            return name;
+        }
+
+        public static string RetronaIdUser(ISession session)
+        {
+            string id = session.GetString("UserId");
+            if (id == null)
+                return "";
+
+            return id;
+        }
     }
 }

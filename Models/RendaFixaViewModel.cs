@@ -7,6 +7,7 @@ namespace TopInvest.Models
     public class RendaFixaViewModel : PadraoViewModel
     {
         public string Descricao { get; set; }
+        public int Duracao { get; set; }
 	    public float Rentabilidade { get; set; }
 
     }

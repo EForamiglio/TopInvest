@@ -1,0 +1,36 @@
+﻿@model List<RendaVariavelViewModel>
+
+<table class="table mx-auto">
+    <thead>
+        <tr>
+            <th scope="col">Ações</th>
+            <th scope="col">Ícone</th>
+            <th scope="col">Sigla</th>
+            <th scope="col">Preço</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var renda in Model)
+        {
+            <tr>
+                <td>
+                    <a href="/RendaVariavel/Edit?id=@renda.Id" class="btn btn-primary me-2">Editar</a>
+                    <a href="javascript:apagarAcao(@renda.Id)" class="btn btn-danger">Apagar</a>
+                </td>
+                <td>
+                    <img id="imgPreview" src="data:image/jpeg;base64,@renda.ImagemEmBase64" class="img-responsive"
+                         width="50">
+                </td>
+                <td>@renda.Sigla</td>
+                <td>@renda.Preco</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    function apagarAcao(id) {
+        if (confirm('Confirma a exclusão do registro?'))
+            location.href = '/rendaVariavel/Delete?id=' + id;
+    }
+</script>

@@ -1,0 +1,33 @@
+﻿@model List<RendaFixaViewModel>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Ações</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Duração</th>
+            <th scope="col">Rentabilidade</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var renda in Model)
+        {
+            <tr>
+                <td>
+                    <a href="/rendaFixa/Edit?id=@renda.Id" class="btn btn-primary me-2">Editar</a>
+                    <a href="javascript:apagarRenda(@renda.Id)" class="btn btn-danger">Apagar</a>
+                </td>
+                <td>@renda.Descricao</td>
+                <td>@renda.Duracao</td>
+                <td>@renda.Rentabilidade</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    function apagarRenda(id) {
+        if (confirm('Confirma a exclusão do registro?'))
+            location.href = '/rendaFixa/Delete?id=' + id;
+    }
+</script>

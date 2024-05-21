@@ -27,6 +27,9 @@ namespace TopInvest.Controllers
                     HttpContext.Session.SetString("Adm", "true");
 
                 HttpContext.Session.SetString("Logado", "true");
+                HttpContext.Session.SetString("NomeUser", cliente.Nome);
+                HttpContext.Session.SetString("UserId", cliente.Id.ToString());
+                ViewBag.NomeUser = HelperController.PreencheNomeUser(HttpContext.Session);
                 return RedirectToAction("index", "Home");  
             }
             else

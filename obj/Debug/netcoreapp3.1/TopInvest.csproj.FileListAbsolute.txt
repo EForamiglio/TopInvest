@@ -368,3 +368,6 @@ D:\Erik\Materia Facul\Sem5\LP1\N1-2bim\TopInvest\obj\Debug\netcoreapp3.1\Razor\V
 D:\Erik\Materia Facul\Sem5\LP1\N1-2bim\TopInvest\obj\Debug\netcoreapp3.1\Razor\Views\RendaVariavel\Index.cshtml.g.cs
 D:\Erik\Materia Facul\Sem5\LP1\N1-2bim\TopInvest\obj\Debug\netcoreapp3.1\Razor\Views\RendaFixa\form.cshtml.g.cs
 D:\Erik\Materia Facul\Sem5\LP1\N1-2bim\TopInvest\obj\Debug\netcoreapp3.1\Razor\Views\RendaFixa\Index.cshtml.g.cs
+D:\Erik\Materia Facul\Sem5\LP1\N1-2bim\TopInvest\obj\Debug\netcoreapp3.1\Razor\Views\RendaVariavel\pvGridAcoes.cshtml.g.cs
+D:\Erik\Materia Facul\Sem5\LP1\N1-2bim\TopInvest\obj\Debug\netcoreapp3.1\Razor\Views\RendaFixa\pvGridFixa.cshtml.g.cs
+D:\Erik\Materia Facul\Sem5\LP1\N1-2bim\TopInvest\obj\Debug\netcoreapp3.1\Razor\Views\Broker\Index.cshtml.g.cs

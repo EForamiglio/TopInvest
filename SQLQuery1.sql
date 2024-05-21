@@ -46,17 +46,19 @@ create table ClienteRendaVariavel (
 drop table ClienteRendaFixa
 drop table ClienteRendaVariavel
 drop table Cliente
+drop table RendaFixa
 
 create table RendaFixa (
 	id int identity primary key,
 	descricao varchar(255),
+	duracao int,
 	rentabilidade float
 )
 
 create table ClienteRendaFixa (
 	id int identity primary key,
 	valor float,
-	duracao DateTime,
+	duracao varchar(20),
 	rendimentoFinal float,
 	clientId int,
 	rendaFixaId int
@@ -278,37 +280,60 @@ GO
 
 select * from RendaVariavel
 
+create procedure spConsultaSigla
+(
+ @sigla varchar(max)
+)
+as
+begin
+select * from RendaVariavel
+where sigla like '%' + @sigla + '%'
+end
+
 //--------------------------- RENDA FIXA-------------------------
 use TopInvest
 select * from RendaFixa
 
-create procedure spInsert_RendaFixa
+alter procedure spInsert_RendaFixa
 (
  @id int,
  @descricao varchar(max),
+ @duracao int,
  @rentabilidade float
 )
 as
 begin
  insert into RendaFixa
- (descricao, rentabilidade)
+ (descricao, duracao, rentabilidade)
  values
- (@descricao,@rentabilidade)
+ (@descricao, @duracao, @rentabilidade)
 end
 GO
-create procedure spUpdate_RendaFixa
+alter procedure spUpdate_RendaFixa
 (
  @id int,
  @descricao varchar(max),
+ @duracao int,
  @rentabilidade float
 )
 as
 begin
  update RendaFixa set
+ duracao = @duracao,
  rentabilidade = @rentabilidade
  where id = @id
 end
 GO
+
+create procedure spConsultaDescricao
+(
+ @descricao varchar(max)
+)
+as
+begin
+select * from RendaFixa
+where descricao like '%' + @descricao + '%'
+end
 
 select * from Cliente
 select * from Endereco

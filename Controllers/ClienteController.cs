@@ -20,6 +20,7 @@ namespace TopInvest.Controllers
         {
             try
             {
+                int clienteId = 0;
                 using (var transacao = new System.Transactions.TransactionScope())
                 {
                     EnderecoDAO enderecoDAO = new EnderecoDAO();
@@ -28,18 +29,24 @@ namespace TopInvest.Controllers
                     ClienteDAO clienteDAO = new ClienteDAO();
                     cliente.NumConta = clienteDAO.GeraProximaConta();
                     cliente.EnderecoId = enderecoId;
-                    cliente.flgAdm = false;
 
-                    clienteDAO.Insert(cliente);
+                    clienteId = clienteDAO.Insert(cliente);
 
                     transacao.Complete();
                 }
                 HttpContext.Session.SetString("Logado", "true");
+                HttpContext.Session.SetString("UserId", clienteId.ToString());
+
+                if (cliente.flgAdm)
+                    HttpContext.Session.SetString("Adm", "true");
+
+                HttpContext.Session.SetString("NomeUser", cliente.Nome);
+
                 return RedirectToAction("Index", "Home");
             }
             catch (Exception erro)
             {
-                return View("Error", new ErrorViewModel(erro.ToString()));
+                return RedirectToAction("Index", "LogOff");
             }
 
         }
