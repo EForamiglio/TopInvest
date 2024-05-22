@@ -14,7 +14,7 @@ namespace TopInvest.Controllers
             ExigeAdm = true;
         }
 
-        public IActionResult ObtemDadosConsultaAvancada(string descricao)
+        public IActionResult ObtemDadosConsultaAvancada(string descricao, int duracao)
         {
             try
             {
@@ -22,7 +22,7 @@ namespace TopInvest.Controllers
                 if (string.IsNullOrEmpty(descricao))
                     descricao = "";
 
-                var lista = dao.ConsultaDescricao(descricao);
+                var lista = dao.ConsultaFiltro(descricao, duracao);
                 return PartialView("pvGridFixa", lista);
             }
             catch (Exception erro)

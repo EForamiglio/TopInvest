@@ -20,6 +20,11 @@ namespace TopInvest.Controllers
 
         public IActionResult FazLogin(string usuario, string senha)
         {
+            if (usuario == null || usuario == "" || senha == null || senha == "")
+            {
+                var erro = "Usuário ou senha inválidos!";
+                return View("index", erro);
+            }
             ClienteDAO dao = new ClienteDAO();
 
             var cliente = dao.ConsultaLogin(usuario, senha);

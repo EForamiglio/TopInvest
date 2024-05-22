@@ -55,7 +55,7 @@ namespace TopInvest.Controllers
             }
         }
 
-        public IActionResult ObtemDadosConsultaAvancada(string sigla)
+        public IActionResult ObtemDadosConsultaAvancada(string sigla, float preco)
         {
             try
             {
@@ -63,7 +63,7 @@ namespace TopInvest.Controllers
                 if (string.IsNullOrEmpty(sigla))
                     sigla = "";
 
-                var lista = dao.ConsultaSigla(sigla);
+                var lista = dao.ConsultaFiltro(sigla, preco);
                 return PartialView("pvGridAcoes", lista);
             }
             catch (Exception erro)

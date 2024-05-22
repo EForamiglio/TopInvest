@@ -95,7 +95,7 @@ namespace TopInvest.Controllers
                 if (string.IsNullOrEmpty(sigla))
                     sigla = "";
 
-                var lista = dao.ConsultaSigla(sigla);
+                var lista = dao.ConsultaFiltro(sigla, 0);
                 return PartialView("pvTrade", lista);
             }
             catch (Exception erro)

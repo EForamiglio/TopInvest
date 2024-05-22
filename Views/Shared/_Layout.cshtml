@@ -16,10 +16,14 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                <img src="/icone.png" alt="icone.png" />
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav ml-auto">
                         @if (ViewBag.Adm == true)
                         {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Cliente" asp-action="Index">Clientes</a>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" asp-area="" asp-controller="RendaVariavel" asp-action="Index">Ações</a>
                             </li>

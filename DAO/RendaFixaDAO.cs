@@ -36,10 +36,11 @@ namespace TopInvest.DAO
             Tabela = "RendaFixa";
         }
 
-        public List<RendaFixaViewModel> ConsultaDescricao(string descricao)
+        public List<RendaFixaViewModel> ConsultaFiltro(string descricao, int duracao)
         {
             SqlParameter[] p = {
                 new SqlParameter("descricao", descricao),
+                new SqlParameter("duracao", duracao)
             };
 
             var tabela = HelperDAO.ExecutaProcSelect("spConsultaDescricao", p);

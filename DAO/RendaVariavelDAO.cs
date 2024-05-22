@@ -45,10 +45,11 @@ namespace TopInvest.DAO
             Tabela = "RendaVariavel";
         }
 
-        public List<RendaVariavelViewModel> ConsultaSigla(string sigla)
+        public List<RendaVariavelViewModel> ConsultaFiltro(string sigla, float preco)
         {
             SqlParameter[] p = {
                 new SqlParameter("sigla", sigla),
+                new SqlParameter("preco", preco),
             };
 
             var tabela = HelperDAO.ExecutaProcSelect("spConsultaSigla", p);

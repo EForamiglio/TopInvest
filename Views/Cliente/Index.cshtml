@@ -1,2 +1,40 @@
-﻿
+﻿@model List<ClienteViewModel>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Ações</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Usuário</th>
+            <th scope="col">Senha</th>
+            <th scope="col">Nº Conta</th>
+            <th scope="col">Localização</th>
+            <th scope="col">Administrador</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cliente in Model)
+        {
+            <tr>
+                <td>
+                    <a href="/cliente/Edit?id=@cliente.Id" class="btn btn-primary me-2">Editar</a>
+                    <a href="javascript:apagarRenda(@cliente.Id)" class="btn btn-danger">Apagar</a>
+                </td>
+                <td>@cliente.Nome</td>
+                <td>@cliente.Usuario</td>
+                <td>@cliente.Senha</td>
+                <td>@cliente.NumConta</td>
+                <td>@cliente.EstadoCidade</td>
+                @if(cliente.flgAdm)
+                {
+                    <td>Sim</td>
+                } else
+                {
+                    <td>Não</td>
+                }
+                
+            </tr>
+        }
+    </tbody>
+</table>
 

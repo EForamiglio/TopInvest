@@ -77,9 +77,10 @@ function confirmarAplicacao(id) {
 
 function aplicaFiltroConsultaAvancadaVariavel() {
     var vSigla = document.getElementById('sigla').value;
+    var vPreco = document.getElementById('preco').value;
     $.ajax({
         url: "/rendaVariavel/ObtemDadosConsultaAvancada",
-        data: { sigla: vSigla},
+        data: { sigla: vSigla, preco: vPreco },
         success: function (dados) {
             if (dados.erro != undefined) {
                 alert(dados.msg);
@@ -95,9 +96,10 @@ function aplicaFiltroConsultaAvancadaVariavel() {
 
 function aplicaFiltroConsultaAvancadaFixa() {
     var vDescricao = document.getElementById('descricao').value;
+    var vDuracao = document.getElementById('duracao').value;
     $.ajax({
         url: "/rendaFixa/ObtemDadosConsultaAvancada",
-        data: { descricao: vDescricao },
+        data: { descricao: vDescricao, duracao: vDuracao },
         success: function (dados) {
             if (dados.erro != undefined) {
                 alert(dados.msg);

@@ -1,4 +1,4 @@
-﻿@model List<ClienteViewModel>
+﻿@model string
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -24,6 +24,7 @@
                     <button type="submit" class="btn btn-success btn-block">Entrar</button>
                     <a href="/cliente/create" class="btn btn-secondary btn-block">Novo Registro</a>
                 </form>
+                <div class="text-danger text-center">@Model</div>
             </div>
         </div>
     </div>

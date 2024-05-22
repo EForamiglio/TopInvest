@@ -21,6 +21,12 @@ namespace TopInvest.Controllers
         {
             try
             {
+                if (!ValidaDadosVazio(cliente, endereco))
+                {
+                    ViewBag.operacao = "I";
+                    ViewBag.erro = "Campos faltando!!!";
+                    return View("form");
+                }
                 int clienteId = 0;
                 using (var transacao = new System.Transactions.TransactionScope())
                 {
@@ -62,6 +68,21 @@ namespace TopInvest.Controllers
 
             string carteiraJson = JsonConvert.SerializeObject(carteira);
             HttpContext.Session.SetString("carteira", carteiraJson);
+        }
+
+        public bool ValidaDadosVazio(ClienteViewModel cliente, EnderecoViewModel endereco)
+        {
+            if (cliente == null || cliente.Usuario == null || cliente.Usuario == "" || cliente.Nome == null || cliente.Nome == "" || cliente.Senha == null || cliente.Senha == "")
+            {
+                return false;
+            }
+            if (endereco == null || endereco.Estado == null || endereco.Estado == "" || endereco.Cidade == null || endereco.Cidade == ""
+                || endereco.Bairro == null || endereco.Bairro == "" || endereco.Cep == null || endereco.Cep == "")
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }

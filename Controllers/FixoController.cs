@@ -32,7 +32,7 @@ namespace TopInvest.Controllers
                 if (string.IsNullOrEmpty(descricao))
                     descricao = "";
 
-                var lista = dao.ConsultaDescricao(descricao);
+                var lista = dao.ConsultaFiltro(descricao, 0);
                 return PartialView("pvFixo", lista);
             }
             catch (Exception erro)
@@ -56,7 +56,7 @@ namespace TopInvest.Controllers
                 fixo.RendaFixaId = fixaId;
                 fixo.ClientId = Convert.ToInt32(HelperController.RetronaIdUser(HttpContext.Session));
                 fixo.Duracao = aplicacao.Duracao.ToString();
-                fixo.RendimentoFinal = (valor * aplicacao.Rentabilidade) * aplicacao.Duracao;
+                fixo.RendimentoFinal = (valor * (aplicacao.Rentabilidade/100)) * aplicacao.Duracao;
                 fixo.Valor = valor;
 
                 FixoDAO fixoDAO = new FixoDAO();

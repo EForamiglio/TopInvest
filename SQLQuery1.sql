@@ -189,9 +189,22 @@ begin
  select isnull(max(numConta) +1, 1) as MAIOR from Cliente
 end
 
+create procedure spListaClientes
+(
+	@tabela varchar(max),
+	@ordem varchar(max)
+)
+as
+begin
+ select c.*, e.cidade, e.estado from Cliente c
+ inner join Endereco e on c.idEndereco = e.id
+end
+
 //--------------------------- ENDERECO-------------------------
 use TopInvest
+select * from CLiente
 select * from Endereco
+select * from RendaVariavel
 alter procedure spInsert_Endereco
 (
  @id int,
@@ -280,14 +293,16 @@ GO
 
 select * from RendaVariavel
 
-create procedure spConsultaSigla
+alter procedure spConsultaSigla
 (
- @sigla varchar(max)
+ @sigla varchar(max),
+ @preco float
 )
 as
 begin
 select * from RendaVariavel
 where sigla like '%' + @sigla + '%'
+and preco > @preco
 end
 
 //--------------------------- RENDA FIXA-------------------------
@@ -324,15 +339,17 @@ begin
  where id = @id
 end
 GO
-
-create procedure spConsultaDescricao
+use TopInvest
+alter procedure spConsultaDescricao
 (
- @descricao varchar(max)
+ @descricao varchar(max),
+ @duracao int
 )
 as
 begin
 select * from RendaFixa
 where descricao like '%' + @descricao + '%'
+and duracao > @duracao
 end
 
 select * from Cliente
