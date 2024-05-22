@@ -3,13 +3,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Cadastro de Ação</h2>
-<div class="row">
+<div class="row align-items-center flex-column">
+
+    <h2 class="white-text">Cadastro de Ação</h2>
     <div class="col-md-4">
         <form asp-action="Save" enctype="multipart/form-data">
             <input type="hidden" name="Operacao" value="@ViewBag.Operacao" />
             <input type="hidden" name="Id" value="@Model.Id" />
-            <label for="Id" class="control-label">Sigla</label>
+            <label for="Id" class="control-label white-text">Sigla</label>
             @if (ViewBag.Operacao == "I")
             {
                 <input asp-for="Sigla" class="form-control" />
@@ -21,16 +22,14 @@
             <span asp-validation-for="Sigla" class="text-danger"></span>
 
             <br />
-            <label for="Preco" class="control-label">Preço</label>
+            <label for="Preco" class="control-label white-text">Preço</label>
             <input asp-for="Preco" class="form-control" />
             <span asp-validation-for="Preco" class="text-danger"></span>
             <br />
             <input type="file" name="Imagem" id="Imagem" onchange="exibirImagem()" class="btn btn-secondary">
-            <img id="imgPreview" src="data:image/jpeg;base64,@Model.ImagemEmBase64" class="img-responsive"
-                 width="100">
             <span asp-validation-for="Imagem" class="text-danger"></span>
             <br />
-            <input type="submit" value="Salvar dados" />
+            <input type="submit" class="btn btn-success me-2 purple-color" value="Salvar dados" />
             <br />
             <span class="text-danger">@ViewBag.Erro</span>
 

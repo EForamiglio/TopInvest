@@ -2,20 +2,20 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h2 class="text-center">Listagem de Rendas Fixas</h2>
+<h2 class="text-center white-text">Listagem de Rendas Fixas</h2>
 </br>
 
 
 <fieldset id="areaFiltro" class="form-group">
-    <legend>Filtro</legend>
+    <legend class="white-text">Filtro</legend>
     <div class="row">
-        <div class="col-lg-4">
+        <div class="col-lg-4 text-white">
             Descrição<br />
             <input type="text" id="descricao" class="form-control" />
         </div>
         <div class="col-lg-1">
             <br />
-            <input type="button" id="btnFiltro" class="btn btn-success" value="Aplicar"
+            <input type="button" id="btnFiltro" class="btn btn-success purple-color" value="Aplicar"
                    onclick="aplicaFiltroConsultaAvancadaFixa()" />
         </div>
     </div>
@@ -24,7 +24,7 @@
 <br />
 <br />
 
-<a href="/rendaFixa/create" class="btn btn-success me-2">Novo Registro</a>
+<a href="/rendaFixa/create" class="btn btn-success me-2 purple-color">Novo Registro</a>
 </br> </br>
 
 <div id="resultadoConsulta" class="table-responsive"> 
@@ -32,10 +32,10 @@
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">Ações</th>
-                <th scope="col">Descrição</th>
-                <th scope="col">Duração</th>
-                <th scope="col">Rentabilidade</th>
+                <th class= "white-text" scope="col">Ações</th>
+                <th class= "white-text" scope="col">Descrição</th>
+                <th class= "white-text" scope="col">Duração</th>
+                <th class= "white-text" scope="col">Rentabilidade</th>
             </tr>
         </thead>
         <tbody>
@@ -46,9 +46,9 @@
                         <a href="/rendaFixa/Edit?id=@renda.Id" class="btn btn-primary me-2">Editar</a>
                         <a href="javascript:apagarRenda(@renda.Id)" class="btn btn-danger">Apagar</a>
                     </td>
-                    <td>@renda.Descricao</td>
-                    <td>@renda.Duracao</td>
-                    <td>@renda.Rentabilidade</td>
+                    <td class="text-white">@renda.Descricao</td>
+                    <td class="text-white">@renda.Duracao</td>
+                    <td class="text-white">@renda.Rentabilidade</td>
                 </tr>
             }
         </tbody>

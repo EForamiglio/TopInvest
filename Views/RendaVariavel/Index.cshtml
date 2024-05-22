@@ -2,20 +2,20 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h2 class="text-center">Listagem de Ações</h2>
+<h2 class="text-center white-text">Listagem de Ações</h2>
 </br>
 
 
 <fieldset id="areaFiltro" class="form-group">
-    <legend>Filtro</legend>
+    <legend class="white-text">Filtro</legend>
     <div class="row">
-        <div class="col-lg-4">
+        <div class="white-text col-lg-4">
             Sigla<br />
             <input type="text" id="sigla" class="form-control" />
         </div>
         <div class="col-lg-1">
             <br />
-            <input type="button" id="btnFiltro" class="btn btn-success" value="Aplicar"
+            <input type="button" id="btnFiltro" class="btn btn-success purple-color" value="Aplicar"
                    onclick="aplicaFiltroConsultaAvancadaVariavel()" />
         </div>
     </div>
@@ -24,34 +24,34 @@
 </br>
 </br>
 
-<a href="/RendaVariavel/create" class="btn btn-success me-2">Novo Registro</a>
+<a href="/RendaVariavel/create" class="btn btn-success me-2 purple-color">Novo Registro</a>
 </br> </br>
 
 <div id="resultadoConsulta" class="table-responsive">
     <table class="table mx-auto">
         <thead>
             <tr>
-                <th scope="col">Ações</th>
-                <th scope="col">Ícone</th>
-                <th scope="col">Sigla</th>
-                <th scope="col">Preço</th>
+                <th class="white-text" scope="col">Ações</th>
+                <th class="white-text" scope="col">Ícone</th>
+                <th class="white-text" scope="col">Sigla</th>
+                <th class="white-text" scope="col">Preço</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var renda in Model)
             {
-                <tr>
-                    <td>
-                        <a href="/RendaVariavel/Edit?id=@renda.Id" class="btn btn-primary me-2">Editar</a>
-                        <a href="javascript:apagarAcao(@renda.Id)" class="btn btn-danger">Apagar</a>
-                    </td>
-                    <td>
-                        <img id="imgPreview" src="data:image/jpeg;base64,@renda.ImagemEmBase64" class="img-responsive"
-                             width="50">
-                    </td>
-                    <td>@renda.Sigla</td>
-                    <td>@renda.Preco</td>
-                </tr>
+            <tr>
+                <td>
+                    <a href="/RendaVariavel/Edit?id=@renda.Id" class="btn btn-primary me-2">Editar</a>
+                    <a href="javascript:apagarAcao(@renda.Id)" class="btn btn-danger">Apagar</a>
+                </td>
+                <td>
+                    <img id="imgPreview" src="data:image/jpeg;base64,@renda.ImagemEmBase64" class="img-responsive"
+                         width="50">
+                </td>
+                <td class="white-text">@renda.Sigla</td>
+                <td class="white-text">@renda.Preco</td>
+            </tr>
             }
         </tbody>
     </table>

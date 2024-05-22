@@ -59,8 +59,10 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    font-family: 'Montserrat';
+    background-color: #27262C;
 }
 .footer {
   position: absolute;
@@ -68,4 +70,123 @@ body {
   width: 100%;
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
+}
+
+.purple-color {
+    background-color: #4044ed;
+    border-color: #4044ed;
+}
+
+.purple-color:hover {
+    background-color: #1e2194 !important;
+    border-color: #1e2194 !important;
+}
+
+.white-text {
+    color: white;
+}
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.full-container {
+    display: flex;
+}
+
+.title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-top: 64px;
+    text-align: center;
+}
+
+.subtitle {
+    font-size: 20px;
+    line-height: 124%;
+    text-align: center;
+    margin-top: 24px;
+    text-align:center;
+}
+
+.box-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.box {
+    display: flex;
+    max-width: 800px;
+    background-color: white;
+    box-shadow: 0 0 15px #4044ed;
+    border-radius: 20px;
+    margin-top: 40px;
+    padding: 32px;
+}
+
+.content {
+    flex: 1;
+}
+
+.title-home {
+    font-size: 24px;
+    font-weight: 1000;
+    color: #4044ed;
+}
+
+.title-home-right {
+    text-align: end;
+}
+
+.description {
+    font-size: 16px;
+}
+
+.container-sobre {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 100px auto 0;
+}
+
+.box-sobre {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: #4044ed;
+    color: white;
+    box-shadow: 0 0 15px white;
+    border-radius: 20px;
+    padding: 32px;
+    width: 48%;
+
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+p {
+    text-align: justify;
+}
+
+.box-info {
+    background-color: white;
+    box-shadow: 0 0 15px #4044ed;
+    border-radius: 20px;
+    padding: 32px;
+    width: 100%;
+    margin-top: 20px; 
+    align-items: center;
+    max-width: 1200px;
+    margin: 100px auto 0;
+    margin-bottom: 50px;
 }

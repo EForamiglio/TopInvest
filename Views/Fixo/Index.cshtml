@@ -2,20 +2,20 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h2 class="text-center">Investimento em Renda Fixa</h2>
+<h2 class="text-center white-text">Investimento em Renda Fixa</h2>
 </br>
 
 
-<fieldset id="areaFiltro" class="form-group">
+<fieldset id="areaFiltro" class="form-group white-text">
     <legend>Filtro</legend>
     <div class="row">
         <div class="col-lg-4">
             Descrição<br />
-            <input type="text" id="descricao" class="form-control" />
+            <input type="text" id="descricao" class="form-control white-text" />
         </div>
         <div class="col-lg-1">
             <br />
-            <input type="button" id="btnFiltro" class="btn btn-success" value="Aplicar"
+            <input type="button" id="btnFiltro" class="btn btn-success purple-color" value="Aplicar"
                    onclick="aplicaFiltroConsultaFixo()" />
         </div>
     </div>
@@ -24,7 +24,7 @@
 </br>
 </br>
 
-<div class="col-lg-3">
+<div class="col-lg-3 white-text">
     Valor da aplicação:<br />
     <input type="number" id="valor" class="form-control" />
 </div>
@@ -35,21 +35,21 @@
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">Descrição</th>
-                <th scope="col">Duração</th>
-                <th scope="col">Rentabilidade</th>
-                <th scope="col"></th>
+                <th class= "white-text" scope="col">Descrição</th>
+                <th class= "white-text" scope="col">Duração</th>
+                <th class= "white-text" scope="col">Rentabilidade</th>
+                <th class= "white-text" scope="col"></th>
             </tr>
         </thead>
         <tbody>
             @foreach (var renda in Model)
             {
                 <tr>
-                    <td>@renda.Descricao</td>
-                    <td>@renda.Duracao meses</td>
-                    <td>@renda.Rentabilidade %</td>
+                    <td class= "white-text">@renda.Descricao</td>
+                    <td class= "white-text">@renda.Duracao meses</td>
+                    <td class= "white-text">@renda.Rentabilidade %</td>
                     <td>
-                        <a onclick="confirmarAplicacao(@renda.Id)" class="btn btn-success">Aplicar</a>
+                        <a onclick="confirmarAplicacao(@renda.Id)" class="btn btn-success purple-color">Aplicar</a>
                     </td>
                 </tr>
             }
