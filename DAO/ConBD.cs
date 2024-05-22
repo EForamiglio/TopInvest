@@ -6,7 +6,7 @@ namespace TopInvest.DAO
     {
         public static SqlConnection GetCon()
         {
-            string conStr = "Data Source=LOCALHOST;Initial Catalog=TopInvest;user id=sa; password=SQL123";
+            string conStr = "Data Source=LOCALHOST;Initial Catalog=TopInvest;user id=sa; password=sa123456";
             SqlConnection con = new SqlConnection(conStr);
             con.Open();
             return con;

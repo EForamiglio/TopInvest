@@ -165,13 +165,16 @@ begin
 end
 GO
 
-
 insert into Cliente
  (nome, usuario, senha, saldo, numConta, flgAdm, idEndereco)
  values
  ('admin','admin', 'admin', 100.00, 1, 1, 7)
 
  select * from Cliente
+
+ update Cliente set
+ nome = 'jo'
+ where id = 7
 
  create procedure spConsultaLogin
 (
@@ -199,6 +202,19 @@ begin
  select c.*, e.cidade, e.estado from Cliente c
  inner join Endereco e on c.idEndereco = e.id
 end
+
+create procedure spConsultaClienteCompleto
+(
+	@clienteId int
+)
+as
+begin
+ select c.*, e.* from Cliente c
+ inner join Endereco e on c.idEndereco = e.id
+ where c.id = @clienteId
+end
+
+select * from cliente
 
 //--------------------------- ENDERECO-------------------------
 use TopInvest

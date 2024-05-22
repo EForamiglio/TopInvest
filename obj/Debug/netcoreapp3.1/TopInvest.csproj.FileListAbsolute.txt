@@ -376,3 +376,6 @@ D:\Erik\Materia Facul\Sem5\LP1\N1-2bim\TopInvest\bin\Debug\netcoreapp3.1\Newtons
 D:\Erik\Materia Facul\Sem5\LP1\N1-2bim\TopInvest\obj\Debug\netcoreapp3.1\Razor\Views\Ativos\Index.cshtml.g.cs
 D:\Erik\Materia Facul\Sem5\LP1\N1-2bim\TopInvest\obj\Debug\netcoreapp3.1\Razor\Views\Fixo\Index.cshtml.g.cs
 D:\Erik\Materia Facul\Sem5\LP1\N1-2bim\TopInvest\obj\Debug\netcoreapp3.1\Razor\Views\Fixo\pvFixo.cshtml.g.cs
+D:\Erik\Materia Facul\Sem5\LP1\N1-2bim\TopInvest\bin\Debug\netcoreapp3.1\TopInvest.StaticWebAssets.xml
+D:\Erik\Materia Facul\Sem5\LP1\N1-2bim\TopInvest\obj\Debug\netcoreapp3.1\Razor\Views\Sobre\Index.cshtml.g.cs
+D:\Erik\Materia Facul\Sem5\LP1\N1-2bim\TopInvest\obj\Debug\netcoreapp3.1\Razor\Views\Cliente\cadastro.cshtml.g.cs

@@ -17,6 +17,12 @@ namespace TopInvest.Controllers
             ExigeAutenticacao = false;
         }
 
+        public IActionResult Cadastro()
+        {
+            ViewBag.operacao = "I";
+            return View(new ClienteViewModel());
+        }
+
         public IActionResult Cadastrar(ClienteViewModel cliente, EnderecoViewModel endereco, string operacao)
         {
             try
@@ -32,7 +38,7 @@ namespace TopInvest.Controllers
                 {
                     EnderecoDAO enderecoDAO = new EnderecoDAO();
                     int enderecoId = enderecoDAO.Insert(endereco);
-                    
+
                     ClienteDAO clienteDAO = new ClienteDAO();
                     cliente.NumConta = clienteDAO.GeraProximaConta();
                     cliente.EnderecoId = enderecoId;

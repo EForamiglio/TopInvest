@@ -18,7 +18,7 @@
             <tr>
                 <td>
                     <a href="/cliente/Edit?id=@cliente.Id" class="btn btn-primary me-2">Editar</a>
-                    <a href="javascript:apagarRenda(@cliente.Id)" class="btn btn-danger">Apagar</a>
+                    <a href="javascript:apagarCliente(@cliente.Id)" class="btn btn-danger">Apagar</a>
                 </td>
                 <td>@cliente.Nome</td>
                 <td>@cliente.Usuario</td>
@@ -37,4 +37,11 @@
         }
     </tbody>
 </table>
+
+<script>
+    function apagarCliente(id) {
+        if (confirm('Confirma a exclusão do registro?'))
+            location.href = '/cliente/Delete?id=' + id;
+    }
+</script>
 
